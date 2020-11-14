@@ -918,6 +918,8 @@ def gen_psf_coeff(filter_or_bp, pupil=None, mask=None, module='A',
     if apname is not None:
         inst.auto_aperturename = False
         inst.aperturename = apname
+    else:
+        inst.aperturename = ""
 
     # Detector position
     # define defaults

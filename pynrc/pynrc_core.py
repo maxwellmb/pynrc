@@ -1534,7 +1534,7 @@ class NIRCam(object):
             # Update off-axis WFE drift
             if self._wfe_drift:
                 _log.info('Calculating WFE Drift for fov_pix={} and oversample={}'.\
-                        format(_fov_pix_bg,oversample))
+                        format(self._fov_pix_bg,oversample))
                 wfe_kwargs = dict(self._psf_info_bg)
                 wfe_kwargs['pupil']  = self._pupil
                 wfe_kwargs['mask']   = None

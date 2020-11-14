@@ -44,7 +44,7 @@ def make_key(filter, pupil=None, mask=None):
 # Disk Models
 def model_info(source, filt, dist):
     
-    base_dir  = '/Volumes/NIRData/Andras_models_v2/'
+    base_dir  = '/Users/maxwellmb/Dropbox (Personal)/Documents/Research/JWST/Cycle 1 Proposal/Disk_Models/'
     model_dir = base_dir + source + '/'
     
     # Match filters with model
@@ -59,6 +59,7 @@ def model_info(source, filt, dist):
     # Model pixels are 4x oversampled
     detscale = (channel_select(bp))[0]
     model_scale = detscale / 4.
+    model_scale = 9.243852e-6*3600 #Updated for Katie's disk model
     
     # File name, arcsec/pix, dist (pc), wavelength (um), flux units
     args_model = (model_dir+fname, model_scale, dist, w0, 'Jy/pixel')

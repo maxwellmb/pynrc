@@ -419,6 +419,9 @@ class obs_hci(nrc_hci):
         if (wind_mode=='FULL') and (self.channel=='SW'):
             raise NotImplementedError('SW Full Frame not yet implemented.')
 
+
+        self.bar_offset=0
+
         # Spectral models
         self.sp_sci = sp_sci
         self.sp_ref = sp_ref
@@ -626,7 +629,7 @@ class obs_hci(nrc_hci):
 
         # Add extinction from the disk
         Rv = 4.0
-        if Av>0: sp *= S.Extinction(Av/Rv,name='mwrv4')
+        # if Av>0: sp *= S.Extinction(Av/Rv,name='mwrv4')
 
         return sp
 
@@ -1485,7 +1488,7 @@ class obs_hci(nrc_hci):
         pixscale = self.pixelscale
 
         # Radial noise
-        rr, stds = radial_std(data, pixscale=pixscale, oversamp=header['OVERSAMP'], 
+        rr, stds = radial_std(data, pixscale=pixscale, oversample=header['OVERSAMP'], 
                               supersample=False, func=func_std)
 
         # Normalize by psf max value
